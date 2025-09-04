@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste de Personnes</title>
+</head>
+<body>
+    <h1>Liste des personnes</h1>
+    <ul>
+        <li th:each="p : ${personnes}">
+            <span th:text="${p.prenom}">Prénom</span>
+            <span th:text="${p.nom}">Nom</span>
+        </li>
+    </ul>
+
+    <h2>Formulaire</h2>
+    <form th:action="@{/view}" method="post">
+        <label>Prénom : </label>
+        <input type="text" name="prenom" required><br>
+        <label>Nom : </label>
+        <input type="text" name="nom" required><br>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <p th:text="${message}"></p>
+</body>
+</html>
